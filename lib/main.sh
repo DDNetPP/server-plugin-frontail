@@ -16,4 +16,4 @@ fi
 # so this logfile should always be current
 # as long as the server does not rotate logs without restart
 
-frontail -h 127.0.0.1 --disable-usage-stats "$(./show_log.sh --filepath)"
+frontail -h 127.0.0.1 --url-path /frontail --disable-usage-stats "$(./show_log.sh --filepath)"
