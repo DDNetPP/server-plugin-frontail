@@ -34,13 +34,12 @@ sleep 10
 # as long as the server does not rotate logs without restart
 
 logfile="$(./show_log.sh --filepath)"
-frontail_cmd="frontail -h 127.0.0.1 --url-path /frontail --disable-usage-stats $logfile"
 
 shutdown() {
 	log "shutting down frontail with pkill ..."
-	pkill -f -- "$frontail_cmd"
+	pkill -f -- --disable-usage-stats "$logfile"
 }
 
 trap shutdown EXIT
 
-"$frontail_cmd"
+frontail -h 127.0.0.1 --url-path /frontail --disable-usage-stats "$logfile"
