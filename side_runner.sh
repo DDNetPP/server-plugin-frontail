@@ -37,7 +37,7 @@ logfile="$(./show_log.sh --filepath)"
 
 shutdown() {
 	log "shutting down frontail with pkill ..."
-	pkill -f -- --disable-usage-stats "$logfile"
+	pkill -f -- "--disable-usage-stats $logfile"
 }
 
 trap shutdown EXIT
