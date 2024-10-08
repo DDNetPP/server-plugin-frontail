@@ -18,6 +18,7 @@ And then in your ``server.cnf`` put the map you want to search for
 ```
 # this is mostly for other plugins that want to link to it
 pl_frontail_url=https://yourdomain.com
+pl_frontail_port=9001
 ```
 
 
