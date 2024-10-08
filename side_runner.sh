@@ -22,9 +22,12 @@ then
 fi
 
 
+port="${CFG_PL_FRONTAIL_PORT:-9001}"
+
 echo "*** server-plugin-frontail ***"
 echo "starting side runner with the following config:"
 echo "url=$CFG_PL_FRONTAIL_URL"
+echo "port=$port"
 
 # give the server time to start
 sleep 10
@@ -42,4 +45,4 @@ shutdown() {
 
 trap shutdown EXIT
 
-frontail -h 127.0.0.1 --url-path /frontail --disable-usage-stats "$logfile"
+frontail -h 127.0.0.1 --port "$port" --url-path /frontail --disable-usage-stats "$logfile"
